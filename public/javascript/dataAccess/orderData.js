@@ -20,6 +20,17 @@ let getOrders = async () => {
    }
 };
 
+// Get an order by it's id
+let getOrderById = async (id) => {
+  try {
+    // get products data - note only one parameter in function call
+    return await api.getDataAsync(`${api.BASE_URL}/orders/${id}`);
+  } // catch and log any errors
+  catch (err) {
+    console.log(err);
+  }
+} // End Functions
+
 let createOrUpdateOrder = async (formOrder) => {
     // url for api call
     const url = `${api.BASE_URL}/orders`
@@ -63,5 +74,6 @@ let createOrUpdateOrder = async (formOrder) => {
 
 export {
     getOrders,
+    getOrderById,
     createOrUpdateOrder
 };
