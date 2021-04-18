@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load BootStrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+
     <link rel="stylesheet" href="./css/style.css">
     <title>Contact Form for CA2</title>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
         <div class="container">
-            <a class="navbar-brand text-danger" href="#">GossipBoard</a>
+            <a class="navbar-brand text-danger" href="index.html">Food Up!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,170 +26,192 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a class="nav-link text-dark" href="index.html">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="ownerPage.html">Owner Access
+                        <a class="nav-link text-dark" href="ownerPage.html">All orders
                             <span class="sr-only"></span>
                         </a>
                     </li>
+                    <li class="nav-item active">
+                        <div id="ownerAccessBtn"></div>
+                    </li>
                     <li class="nav-item">
-                        <a id="login" class="nav-link" href="#"><span
+                        <a id="login" class="nav-link text-dark" href="#"><span
                                 class="bi bi-box-arrow-in-right link-icon"></span>Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="get-profile" class="nav-link" href="#">
+                            <span class="bi bi-person-fill link-icon"></span>Profile</a>
                     </li>
                     <li class="nav-item">
                         <a id="logout" class="nav-link" href="#">
                             <span class="bi bi-box-arrow-in-left link-icon"></span>Logout</a>
-                    </li
-                </ul>
+                    </li </ul>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="row">
-            <!-- Page Header -->
-
-
-           
-        </div>
-    </div>
-
-
-
-    <!-- Model Form - Toggles between 2 modals  -->
-    <!-- First modal dialog -->
-    <div name="ModalForms">
-        <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <form id="orderFormUser">
-                        <div class="form-group">
-                            <label for="order_name">Name:</label>
-                            <input type="text" name="order_name" id="order_name" class="form-control" placeholder="Enter your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="order_mobile">Mobile number:</label>
-                            <input type="text" name="order_mobile" id="order_mobile" class="form-control" placeholder="Enter your mobile number">
-                        </div>
-                        <div class="form-group">
-                            <label for="order_email">Email:</label>
-                            <input type="email" name="order_email" id="order_email" class="form-control" placeholder="Enter your email e.g name@examplemail.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="order_burger">Burger:</label>
-                            <select class="form-control" id="order_burger">
-                              <option value="0" selected>No burger please!</option>
-                              <option value="1">Big Mac</option>
-                              <option value="2">Meaty Boy 10"</option>
-                              <option value="3">Whopper - Extra Fat</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_kebab">Kebab:</label>
-                            <select class="form-control" id="order_kebab">
-                              <option value="0" selected>No kebab please!</option>
-                              <option value="1">Kebaby Boi</option>
-                              <option value="2">Doner Kebab</option>
-                              <option value="3">Suprise 'Bab</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_chip">Chip:</label>
-                            <select class="form-control" id="order_chip">
-                              <option value="0" selected>No chip please!</option>
-                              <option value="1">Regular Chip</option>
-                              <option value="2">Curry Chip</option>
-                              <option value="3">Gravy Chip</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_drink">Drink:</label>
-                            <select class="form-control" id="order_drink">
-                              <option value="0" selected>No drink please!</option>
-                              <option value="1">Coke</option>
-                              <option value="2">Fanta</option>
-                              <option value="3">Bainne</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="order_info">Anything you want to let us know about?</label>
-                            <textarea class="form-control" id="order_info" rows="7"></textarea>
-                        </div>
-                        <div>
-                            <!-- order_Id is a hidden field value is not required but set = 0-->
-                            <input id="_id" type="hidden" name="_id" value="0">
-                        </div>
-                    </form>
-
-                    <div class="modal-footer">
-                        <!-- Toogle to second dialog -->
-                        <button id="saveOrderButton" class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" 
-                            data-bs-dismiss="modal">Submit order
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel order</button>
-                    </div>
+        <!-- Page Header -->
+        <div class="jumbotron p-4 mt-2 bg-dark text-white">
+            <div class="row">
+                <div class="col-6">
+                    <h1 class="display-4 font-">Hungry?</h1>
+                    <p class="lead">Here at Food Up! we know what it's like to be hungry. That's why we've made it our
+                        life goal to satisfy those midday cravings! </p>
+                    <hr class="my-4">
+                    <p class="font-italic">Choose from our few choices of burgers, kebabs, chips and drinks!</p>
+                    <p class="lead">
+                        <button class="btn btn-primary mt-5 ms-5 p-3" href="#modal" data-bs-toggle="modal">Place an
+                            Order for
+                            Collection NOW!</button>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="./images/burger.png" alt="burger">
                 </div>
             </div>
+
         </div>
 
-        <!-- Second modal dialog -->
-        <div class="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    Thanks for your order! It will be ready in 45mins
-                    <div class="modal-footer">
-                        <!-- Toogle to first dialog, `data-bs-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
-                        <button class="btn btn-primary" href="#modal" data-bs-dismiss="modal">Finish Order</button>
-                        <!-- Cancel order button -->
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
         <!-- Open first dialog -->
-            <button class="btn btn-primary" href="#modal" data-bs-toggle="modal">Make an Order for Collection!</button>
-    </div>
-
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- <div class="row">
+            <div class="col-12 mx-auto">
+                <button class="btn btn-primary" href="#modal" data-bs-toggle="modal">Make an Order for Collection!</button>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </div> -->
 
-    <!-- Load BootStrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!-- Bootstrap icons https://icons.getbootstrap.com/ -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
-    <!-- BootStrap 5 JavaScript Dependencies  -->
-    <!-- JavaScript Bundle with jQuery and Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
 
-    <!-- Auth0 JavaScript -->
-    <!-- <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script> -->
+        <!-- Model Form - Toggles between 2 modals  -->
+        <!-- First modal dialog -->
+        <div name="ModalForms">
+            <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true"
+                aria-labelledby="..." tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h4 class="text-center w-100">Please select your orders:</h4>
+                        </div>
+                        <div class="modal-body mx-3 mb-3">
+                            <form id="orderFormUser">
+                                <div class="form-group mb-3">
+                                    <label for="order_name">Name:</label>
+                                    <input type="text" name="order_name" id="order_name" class="form-control"
+                                        placeholder="Enter your name">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_mobile">Mobile number:</label>
+                                    <input type="text" name="order_mobile" id="order_mobile" class="form-control"
+                                        placeholder="Enter your mobile number">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_email">Email:</label>
+                                    <input type="email" name="order_email" id="order_email" class="form-control"
+                                        placeholder="Enter your email e.g name@examplemail.com">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_burger">Burger:</label>
+                                    <select class="form-control form-select" size="4" id="order_burger">
+                                        <option value="0" selected>No burger please!</option>
+                                        <option value="1">Big Mac</option>
+                                        <option value="2">Meaty Boy 10"</option>
+                                        <option value="3">Whopper - Extra Fat</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_kebab">Kebab:</label>
+                                    <select class="form-control form-select" size="4" id="order_kebab">
+                                        <option value="0" selected>No kebab please!</option>
+                                        <option value="1">Kebaby Boi</option>
+                                        <option value="2">Doner Kebab</option>
+                                        <option value="3">Suprise 'Bab</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_chip">Chip:</label>
+                                    <select class="form-control form-select" size="4" id="order_chip">
+                                        <option value="0" selected>No chip please!</option>
+                                        <option value="1">Regular Chip</option>
+                                        <option value="2">Curry Chip</option>
+                                        <option value="3">Gravy Chip</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_drink">Drink:</label>
+                                    <select class="form-control form-select" size="4" id="order_drink">
+                                        <option value="0" selected>No drink please!</option>
+                                        <option value="1">Coke</option>
+                                        <option value="2">Fanta</option>
+                                        <option value="3">Bainne</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="order_info">Anything you want to let us know about?</label>
+                                    <textarea class="form-control" id="order_info" rows="7" placeholder="No special preferences">None</textarea>
+                                </div>
+                            </div>
+                                <div>
+                                    <!-- order_Id is a hidden field value is not required but set = 0-->
+                                    <input id="_id" type="hidden" name="_id" value="0">
+                                </div>
+                            </form>
+                        
 
-    <!-- View JavaScript -->
-    <!-- <script src="./javascript/views/shared/login.js" type="module"></script> -->
-    <script src="./javascript/views/index.js" type="module"></script>
+                        <div class="modal-footer">
+                            <!-- Toogle to second dialog -->
+                            <button id="saveOrderButton" class="btn btn-primary" data-bs-target="#modal2"
+                                data-bs-toggle="modal" data-bs-dismiss="modal">Submit order
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second modal dialog -->
+            <div class="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true"
+                aria-labelledby="..." tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        Thanks for your order! It will be ready in 45mins
+                        <div class="modal-footer">
+                            <!-- Toogle to first dialog, `data-bs-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
+                            <button class="btn btn-primary" href="#modal" data-bs-dismiss="modal">Finish
+                                Order</button>
+                            <!-- Cancel order button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Bootstrap icons https://icons.getbootstrap.com/ -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+            <!-- BootStrap 5 JavaScript Dependencies  -->
+            <!-- JavaScript Bundle with jQuery and Popper -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+                crossorigin="anonymous"></script>
+
+            <!-- Auth0 JavaScript -->
+            <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script>
+
+            <!-- View JavaScript -->
+            <!-- <script src="./javascript/views/shared/login.js" type="module"></script> -->
+            <script src="./javascript/views/index.js" type="module"></script>
 
 </body>
 

@@ -5,12 +5,39 @@ import * as orderData from '../dataAccess/orderData.js';
 import { OrderDetails } from '../models/orderDetails.js';
 // import * as validator from 'validator';
 
+/*
+// Auth0 dependencies
+import { API_ROLES } from '../auth/auth0-variables.js';
+import { checkAuth } from '../auth/jwtAuth.js';
+
+// Function to display ownerPage.html page if logged in as owner
+let displayOwnerAccess = () => {
+
+   // check user permissions
+    // Does the token contain these roles?
+    // const showUpdate = checkAuth(API_ROLES.UPDATE_ORDER);
+    // const showDelete = checkAuth(API_ROLES.DELETE_ORDER);
+    // const showAdd = checkAuth(API_ROLES.CREATE_ORDER);
+    const showRead = checkAuth(API_ROLES.READ_ORDER)
+
+    // Show button if user has permission to add products
+    if (showRead) {
+      document.getElementById('ownerAccessBtn').innerHTML = '<a  class="nav-link" href="ownerPage.html">Owner Access<span class="sr-only"></span></a>';
+    } else {
+      document.getElementById('ownerAccessBtn').style.display = 'none';
+    }
+
+
+
+}
+*/
+
 // Create post cards
 // Display in web page
 let displayOrders = ((orders) => {
   // Use the Array map method to iterate through the array of products (in json format)
   const orderCards = orders.map(orderCard => {
-    orderCard = `<div class="col-4">
+    orderCard = `<div class="col-10 mx-auto text-center">
                   <div class="card mt-3">
                     <div class="card-body">
                       <div class="card-title">
@@ -20,8 +47,9 @@ let displayOrders = ((orders) => {
                           Mobile: ${orderCard.orderDetails_mobile}<br>
                           Email: ${orderCard.orderDetails_email}<br>
                           Burger: ${orderCard.orderDetails_burger}<br>
-
-
+                          Kebab: ${orderCard.orderDetails_kebab}<br>
+                          Chip: ${orderCard.orderDetails_chip}<br>
+                          Drink: ${orderCard.orderDetails_drink}<br>
                           Extra info: ${orderCard.orderDetails_info}
                         </p>
                       </div>
@@ -260,13 +288,11 @@ let loadOrders = async () => {
 };
 
 
-
-
-
 // When this script is loaded, get things started by calling loadOrders() if in Owner Access!
 if (window.location.href == 'http://localhost:3000/ownerPage.html') {
   loadOrders();
 }
 else {
   loadForm();
+  // displayOwnerAccess();
 };
