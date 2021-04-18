@@ -33,7 +33,7 @@ let displayOrders = ((orders) => {
                       </span>Edit order</button>
                       <button id="${orderCard._id}" class="btn btn-m btn-outline-danger btn-delete-order">
                       <span class="bi bi-trash" data-toggle="tooltip" 
-                      title="Delete Product"></span>Delete order</button>
+                      title="Delete order"></span>Delete order</button>
                     </div>                  
                     
                   </div>
@@ -132,7 +132,7 @@ let displayOrders = ((orders) => {
   // Both arrays have same length so only need 1 loop
   for (let i = 0; i < updateButtons.length; i++) {
     updateButtons[i].addEventListener("click", prepareOrderUpdate);
-    // deleteButtons[i].addEventListener("click", deleteOrder);
+    deleteButtons[i].addEventListener("click", deleteOrder);
   }
 
 
@@ -218,6 +218,14 @@ async function prepareOrderUpdate() {
     console.log(err);
   }
 } // End function
+
+// Delete order by id
+async function deleteOrder() {
+  const result = await orderData.deleteOrderById(this.id);
+  if (result === true) {
+      loadOrders();
+  }
+}
 
 // Loaded on Home page - user create form
 let loadForm = async () => {

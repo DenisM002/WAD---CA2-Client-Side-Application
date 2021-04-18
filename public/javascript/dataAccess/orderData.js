@@ -66,7 +66,28 @@ let createOrUpdateOrder = async (formOrder) => {
     return err;
   }
 
-}
+};
+
+// Delete order by id using an HTTP DELETE request
+let deleteOrderById = async (id) => {
+  // url for delete order endpoint
+  const url = `${api.BASE_URL}/orders/${id}`;
+
+  // Build the request object
+  const request = api.fetchInit('DELETE');
+
+  // Confirm delete
+  if (confirm("Are you sure?")) {
+    try {
+      // call the api and get a result
+      return await api.getDataAsync(url, request);
+      // catch and log any errors
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
+} // End Function
 
 
 
@@ -75,5 +96,6 @@ let createOrUpdateOrder = async (formOrder) => {
 export {
     getOrders,
     getOrderById,
-    createOrUpdateOrder
+    createOrUpdateOrder,
+    deleteOrderById
 };
