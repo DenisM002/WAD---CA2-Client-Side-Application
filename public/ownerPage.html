@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Contact Form for CA2</title>
+    <title>All orders - Owner access only</title>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -20,13 +18,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
+                        <a class="nav-link" href="index.html">Home
+                            <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="ownerPage.html">Owner Access
-                            <span class="sr-only"></span>
+                            <span class="sr-only">(Current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -42,63 +40,22 @@
     </nav>
 
     <div class="container">
-        <div class="row">
-            <!-- Page Header -->
 
+        <div class="row">>
+            <div id="orderCards">
+                <!-- Posts go here -->
 
-            <!-- Button trigger modal -->
-            <div class="mt-5 col-2 ">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#newPostFormStatic">
-                    Create New Post
-                </button>
-            </div>
-            <div class="row">
-
-
-            </div>
-        </div> -->
-    </div>
-
-
-
-    <!-- Model Form - Toggles between 2 forms  -->
-    <!-- First modal dialog -->
-    <div name="ModalForms">
-        <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <input type="text">Yo
-                    <div class="modal-footer">
-                        <!-- Toogle to second dialog -->
-                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Open #modal2</button>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Second modal dialog -->
-        <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    Thanks for your order! It will be ready in 45mins
-                    <div class="modal-footer">
-                        <!-- Toogle to first dialog, `data-bs-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
-                        <button class="btn btn-primary" href="#modal" data-bs-dismiss="modal">Finish Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Open first dialog -->
-        <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Make an Order for Collection!</a>
+
+
+
+
+
+
     </div>
-
-
-
     
-
-
     <!-- Load BootStrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -111,16 +68,9 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
 
-    <script src="./javascript/views/index.js" type="module"></script>
-
-
-    <!-- Auth0 JavaScript -->
-    <!-- <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script> -->
 
     <!-- View JavaScript -->
     <!-- <script src="./javascript/views/shared/login.js" type="module"></script> -->
     <script src="./javascript/views/index.js" type="module"></script>
-
 </body>
-
 </html>

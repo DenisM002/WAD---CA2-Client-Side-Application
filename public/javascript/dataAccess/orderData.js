@@ -7,12 +7,12 @@ import * as api from './fetchAPI.js';
 
 
 // Gets post data and returns to index.js
-let getPosts = async () => {
+let getOrders = async () => {
     try {
   
-      // get products data - note only one parameter in function call
-      const posts = await api.getDataAsync(`${api.BASE_URL}/post`);
-      return posts;
+      // get order data - note only one parameter in function call
+      const orders = await api.getDataAsync(`${api.BASE_URL}/orders`);
+      return orders;
       
    } // catch and log any errors
    catch (err) {
@@ -20,7 +20,7 @@ let getPosts = async () => {
    }
 };
 
-let createPost = async (post) => {
+let createOrder = async (post) => {
     // url for api call
     const url = `${api.BASE_URL}/post`
     // New product = POST, Update = PUT or PATCH
@@ -62,6 +62,6 @@ let createPost = async (post) => {
   
 
 export {
-    getPosts,
-    createPost
+    getOrders,
+    createOrder
 };
