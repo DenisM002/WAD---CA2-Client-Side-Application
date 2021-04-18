@@ -20,24 +20,24 @@ let getOrders = async () => {
    }
 };
 
-let createOrder = async (post) => {
+let createOrUpdateOrder = async (formOrder) => {
     // url for api call
-    const url = `${api.BASE_URL}/post`
+    const url = `${api.BASE_URL}/orders`
     // New product = POST, Update = PUT or PATCH
     let httpMethod = 'POST';
 
     // log to console
-    console.log('Create post:', post);
+    console.log('Create order:', formOrder);
     
     // Check if new or update
-    // Only existing products have formProduct._id > 0
-    if (post._id > 0) {
+    // Only existing products have formOrder._id > 0
+    if (formOrder._id > 0) {
         httpMethod = 'PUT';
     }
 
     // build the request object - note: POST
     // reqBodyJson added to the req body
-    const request = api.fetchInit(httpMethod, JSON.stringify(post));
+    const request = api.fetchInit(httpMethod, JSON.stringify(formOrder));
 
   try {
     // Call fetch and await the respose
@@ -63,5 +63,5 @@ let createOrder = async (post) => {
 
 export {
     getOrders,
-    createOrder
+    createOrUpdateOrder
 };

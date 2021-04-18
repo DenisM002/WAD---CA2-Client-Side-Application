@@ -2,7 +2,8 @@
 
 // Import all exports from postData
 import * as orderData from '../dataAccess/orderData.js';
-//import { OrderDetails } from '../models/orderDetails';
+import { OrderDetails } from '../models/orderDetails.js';
+// import * as validator from 'validator';
 
 // Create post cards
 // Display in web page
@@ -45,9 +46,7 @@ let displayOrders = ((orders) => {
   // join('') converts the rows array to a string, replacing the ',' delimiter with '' (blank)
   document.getElementById('orderCards').innerHTML = orderCards.join('');
 
-  // Add event listener to button - 'Create Post' and call functions 
-  const savePostButton = document.getElementById('createPostSaveBtn');
-  savePostButton.addEventListener("click", addOrder);
+ 
 });
 
 
@@ -56,14 +55,35 @@ let getOrderFormData = () => {
   // VALIDATE THESE!!!!!
   return new OrderDetails(
     document.getElementById("_id").value,
-    document.getElementById("post_title").value,
-    document.getElementById("post_body").value
+    document.getElementById("order_name").value,
+    document.getElementById("order_mobile").value,
+    document.getElementById("order_email").value,
+    document.getElementById("order_burger").value,
+    document.getElementById("order_kebab").value,
+    document.getElementById("order_chip").value,
+    document.getElementById("order_drink").value,
+    document.getElementById("order_info").value,
+
   );
 };
 
+let loadForm = async () => {
+
+  try {
+    // Create eventHandler for contact form:
+   // Add event listener to button - 'addOrder' and call functions 
+   const saveOrderButton = document.getElementById('saveOrderButton');
+   saveOrderButton.addEventListener("click", addOrder);
+  }
+  // catch and log any errors
+  catch (err) {
+    console.log(err);
+  }
+}
 
 // Load and display orders on home page
 let loadOrders = async () => {
+  
   try {
     const orders = await orderData.getOrders();
     //pass json data for display
@@ -73,18 +93,20 @@ let loadOrders = async () => {
   catch (err) {
     console.log(err);
   }
+
+  
 };
 
 
 // Create OrderDetails object
 let addOrder = async () => {
   const newOrder = getOrderFormData();
+  document.getElementById('contactForm').reset()
+  document.getElementById("_id").value = 0;
   // log to console
   console.log(newOrder);
 
-  orderData.createOrder(newOrder);
-  loadOrders();
-    
+  orderData.createOrUpdateOrder(newOrder);
 
 // End function
 console.log(newOrder);
@@ -92,10 +114,12 @@ console.log(newOrder);
 
 
 
-export {
-  loadOrders
+
+
+// When this script is loaded, get things started by calling loadOrders() if in Owner Access!
+if (window.location.href == 'http://localhost:3000/ownerPage.html') {
+  loadOrders();
+}
+else {
+  loadForm();
 };
-
-
-// When this script is loaded, get things started by calling loadOrders()
-loadOrders();

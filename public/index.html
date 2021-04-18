@@ -36,7 +36,8 @@
                     <li class="nav-item">
                         <a id="logout" class="nav-link" href="#">
                             <span class="bi bi-box-arrow-in-left link-icon"></span>Logout</a>
-                    </li </ul>
+                    </li
+                </ul>
             </div>
         </div>
     </nav>
@@ -46,52 +47,103 @@
             <!-- Page Header -->
 
 
-            <!-- Button trigger modal -->
-            <div class="mt-5 col-2 ">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#newPostFormStatic">
-                    Create New Post
-                </button>
-            </div>
-            <div class="row">
-
-
-            </div>
-        </div> -->
+           
+        </div>
     </div>
 
 
 
-    <!-- Model Form - Toggles between 2 forms  -->
+    <!-- Model Form - Toggles between 2 modals  -->
     <!-- First modal dialog -->
     <div name="ModalForms">
-        <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <input type="text">Yo
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="order_name">Name:</label>
+                            <input type="text" name="order_name" id="order_name" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="order_mobile">Mobile number:</label>
+                            <input type="text" name="order_mobile" id="order_mobile" class="form-control" placeholder="Enter your mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label for="order_email">Email:</label>
+                            <input type="email" name="order_email" id="order_email" class="form-control" placeholder="Enter your email e.g name@examplemail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="order_burger">Burger:</label>
+                            <select class="form-control" id="order_burger">
+                              <option value="0" selected>No burger please!</option>
+                              <option value="1">Big Mac</option>
+                              <option value="2">Meaty Boy 10"</option>
+                              <option value="3">Whopper - Extra Fat</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_kebab">Kebab:</label>
+                            <select class="form-control" id="order_kebab">
+                              <option value="0" selected>No kebab please!</option>
+                              <option value="1">Kebaby Boi</option>
+                              <option value="2">Doner Kebab</option>
+                              <option value="3">Suprise 'Bab</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_chip">Chip:</label>
+                            <select class="form-control" id="order_chip">
+                              <option value="0" selected>No chip please!</option>
+                              <option value="1">Regular Chip</option>
+                              <option value="2">Curry Chip</option>
+                              <option value="3">Gravy Chip</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_drink">Drink:</label>
+                            <select class="form-control" id="order_drink">
+                              <option value="0" selected>No drink please!</option>
+                              <option value="1">Coke</option>
+                              <option value="2">Fanta</option>
+                              <option value="3">Bainne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order_info">Anything you want to let us know about?</label>
+                            <textarea class="form-control" id="order_info" rows="7"></textarea>
+                        </div>
+                        <div>
+                            <!-- order_Id is a hidden field value is not required but set = 0-->
+                            <input id="_id" type="hidden" name="_id" value="0">
+                        </div>
+                    </form>
+
                     <div class="modal-footer">
                         <!-- Toogle to second dialog -->
-                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Open #modal2</button>
+                        <button id="saveOrderButton" class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" 
+                            data-bs-dismiss="modal">Submit order
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel order</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Second modal dialog -->
-        <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="..." tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="modal2" data-bs-backdrop="static" data-bs-keyboard="false" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     Thanks for your order! It will be ready in 45mins
                     <div class="modal-footer">
                         <!-- Toogle to first dialog, `data-bs-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
                         <button class="btn btn-primary" href="#modal" data-bs-dismiss="modal">Finish Order</button>
+                        <!-- Cancel order button -->
                     </div>
                 </div>
             </div>
         </div>
         <!-- Open first dialog -->
-        <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Make an Order for Collection!</a>
+            <button class="btn btn-primary" href="#modal" data-bs-toggle="modal">Make an Order for Collection!</button>
     </div>
 
 
@@ -110,9 +162,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
-
-    <script src="./javascript/views/index.js" type="module"></script>
-
 
     <!-- Auth0 JavaScript -->
     <!-- <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script> -->
